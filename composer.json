@@ -1,0 +1,15 @@
+{
+    "name": "bernardobulik/zoft-mec",
+    "autoload": {
+        "psr-4": {
+            "Bernardobulik\\ZoftMec\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bernardo Bulik",
+            "email": "bernardobulik@gmail.com"
+        }
+    ],
+    "require": {}
+}

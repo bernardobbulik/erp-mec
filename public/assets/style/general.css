@@ -1,0 +1,15 @@
+:root{
+    --primary-color: rgb(126, 29, 206);
+    --secondary-color: rgb(46, 45, 45);
+    --hover: rgb(85, 85, 85);
+}
+
+
+*{
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
