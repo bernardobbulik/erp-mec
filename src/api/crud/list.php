@@ -1,40 +1,38 @@
 <?php
 
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-include_once '../core/db.php';
+include_once '../../core/db.php';
 
 $response = [];
 $erro = '';
 
-// Variaveis do POST
-$email = $_POST['email'];
-$pwr = $_POST['senha'];
-
-$loggedIn = false;
-
 // Verificacao
-if(empty($email)){
-    $erro .= 'E-mail nao pode ser nulo!'; // .= concatena
-}else if(empty($pwr)){
-    $erro .= 'Senha nao pode ser nula!';
+if($loggedIn === true){
+    if(empty($erro)){
+        try{
+            $stmt = $conn->prepare('SELECT * FROM usuarios WHERE email = ? AND senha = ?');
+            $stmt->execute([$email, $pwr]);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+
+        }finally{
+
+        }
+    }
 }
 
 if(empty($erro)){
     //n tem erro
-    $stmt = $conn->prepare('SELECT * FROM usuarios WHERE email = ? AND senha = ? AND situacao = "ATIVO"');
+    $stmt = $conn->prepare('SELECT * FROM usuarios WHERE email = ? AND senha = ?');
     $stmt->execute([$email, $pwr]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if($user){
-        
-        $_SESSION['nomeUsuario'] = $user['nome'];
-        $_SESSION['cdusuario'] = $user['cdusuario'];
         $response = [
             'success' => true,
             'mensagem' => 'Login realizado com sucesso!'
         ];
+        $nome = $user['nome'];
+        $cdusuario = $user['cdusuario'];
+        $loggedIn = true;
     }
     else {
         $response = [

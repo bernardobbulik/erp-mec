@@ -1,62 +1,78 @@
-/* NAV */
-
-html {
-    height: 100%;
+.home-hero {
+    max-width: 920px;
+    display: grid;
+    gap: var(--space-4);
 }
 
-.nav-bar ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-around;
+.hero-tag {
+    width: fit-content;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
 }
 
-.nav-bar li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 20px;
-    text-decoration: none;
-    transition: background-color 0.3s;
+.home-hero h1 {
+    font-size: clamp(2rem, 6vw, 4.1rem);
+    line-height: 0.95;
+    max-width: 11ch;
 }
 
-
-.nav-bar li a:hover{
-    background-color: var(--hover);
+.hero-copy {
+    max-width: 56ch;
+    color: var(--color-soft);
+    font-size: 0.98rem;
 }
 
-.nav-bar li a.active{
-    background-color: var(--secondary-color);
+.hero-grid {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line-soft);
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
 }
 
-
-
-/* MAIN CONTENT */
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+.hero-card {
+    padding-right: var(--space-3);
+    transition: transform var(--motion-mid) var(--easing), opacity var(--motion-mid) var(--easing);
 }
 
-section {
-    flex: 1;
+.hero-card + .hero-card {
+    border-left: 1px solid var(--line-soft);
+    padding-left: var(--space-4);
 }
 
-/* FOOTER */
-
-.page-footer{
-    background-color: var(--secondary-color);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    width: 100%;
-    margin-top: auto;
+.hero-card:hover {
+    transform: translateY(-2px);
+    opacity: 1;
 }
 
-.status-bar{
-    max-width: 1200px;
-    padding: 0 20px;
+.hero-card h2 {
+    font-size: 1rem;
+    margin-bottom: var(--space-2);
+}
+
+.hero-card p {
+    color: var(--color-soft);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .home-hero h1 {
+        max-width: 14ch;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .hero-card,
+    .hero-card + .hero-card {
+        border-left: 0;
+        border-top: 1px solid var(--line-soft);
+        padding: var(--space-3) 0 0;
+    }
 }

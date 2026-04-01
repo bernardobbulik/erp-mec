@@ -1,57 +1,37 @@
 <?php
-
+include_once __DIR__ . '/../partials/bootstrap.php';
+$pageTitle = 'Home';
+$pageStyles = ['home.css'];
 ?>
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Home | ZoftMec</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-        <link rel="stylesheet" href="../assets/style/general.css">
-        <link rel="stylesheet" href="../assets/style/home.css">
-    </head>
-
-    <body>
-        <header>            
-            <nav class="nav-bar">
-                <ul>
-                    <li><a href="home.php">Home</a></li>
-                    <li><a href="clientes.php">Clientes</a></li>
-                    <li><a href="ordem-servico.php">Ordens de Servico</a></li>
-                    <li><a href="financeiro.php">Financeiro</a></li>
-                    <li><a href="configuracoes.php">Configuracoes</a></li>
-                    <li><a href="logout.php">Sair</a></li>
-                </ul>
-            </nav>
+    <?php include_once __DIR__ . '/../partials/head.php'; ?>
+    <body class="site-shell page-home">
+        <header class="site-header">
+            <?php include_once __DIR__ . '/../partials/navbar.php'; ?>
         </header>
 
-
-        <section>
-            <div class="container">
-                Bem-vindo ao ZoftMec
-            </div>
-        </section>
-
+        <main class="page-main">
+            <section class="home-hero" data-reveal>
+                <p class="hero-tag">Dashboard</p>
+                <h1>Workshop management, reduced to essentials.</h1>
+                <p class="hero-copy">A clean monochrome interface with less friction, faster scanning, and better focus.</p>
+                <div class="hero-grid">
+                    <article class="hero-card">
+                        <h2>Clear structure</h2>
+                        <p>Simple navigation and calm spacing make each action immediate.</p>
+                    </article>
+                    <article class="hero-card">
+                        <h2>Consistent rhythm</h2>
+                        <p>Consistent hierarchy keeps the workflow readable on desktop and mobile.</p>
+                    </article>
+                </div>
+            </section>
+        </main>
 
         <footer class="page-footer">
-            <div class="status-bar">
-                <p>Usuario: teste</p>
-            </div>
+            <?php include_once __DIR__ . '/../partials/footer.php'; ?>
         </footer>
-        
-
 
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

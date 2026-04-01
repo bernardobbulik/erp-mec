@@ -1,0 +1,58 @@
+.clientes-shell {
+    max-width: 920px;
+    display: grid;
+    gap: var(--space-3);
+}
+
+.clientes-kicker {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+}
+
+.clientes-shell h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1;
+}
+
+.clientes-description {
+    max-width: 56ch;
+    color: var(--color-soft);
+}
+
+.clientes-frame {
+    margin-top: var(--space-4);
+    border-top: 1px solid var(--line-soft);
+    padding-top: var(--space-4);
+    display: grid;
+    gap: var(--space-2);
+}
+
+.clientes-frame span {
+    display: block;
+    height: 1px;
+    background: var(--line-medium);
+    transition: width var(--motion-mid) var(--easing);
+}
+
+.clientes-frame span:nth-child(1) {
+    width: 100%;
+}
+
+.clientes-frame span:nth-child(2) {
+    width: 78%;
+}
+
+.clientes-frame span:nth-child(3) {
+    width: 60%;
+}
+
+.clientes-shell:hover .clientes-frame span:nth-child(2) {
+    width: 82%;
+}
+
+.clientes-shell:hover .clientes-frame span:nth-child(3) {
+    width: 64%;
+}

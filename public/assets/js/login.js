@@ -1,4 +1,4 @@
-// Carregando DOM
+// Loading DOM
 
 const formLogin  = document.querySelector('#form-login');
 const inputEmail = document.querySelector('#inpEmail');
@@ -17,20 +17,16 @@ function connect(formData){
 
 
 function error(response){
-    alert(`ERRO: ${response}`);
+    alert('Error while signing in. Please check your credentials.');
     inputEmail.value = ``;
     inputSenha.value = ``;
     inputEmail.focus();
 }
 
-function success(response){
-
-}
-
-console.log(`ola`);
+console.log('hello');
 
 (function (){
-    console.log('JS carregado');
+    console.log('JS loaded');
 
     console.log('formLogin:', formLogin);
 
@@ -45,10 +41,11 @@ console.log(`ola`);
                 if(!response.success){
                     error(response.mensagem);
                 }
-                window.location.href = '../views/home.php'
+                alert('Login successful');
+                window.location.href = './home.php'
             });
         });
     } else {
-        console.log('Form não encontrado');
+        console.log('Form not found');
     }
 })();
